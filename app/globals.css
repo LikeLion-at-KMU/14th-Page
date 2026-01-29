@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
+/* Pretendard Font */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 45 920; /* variable font 범위 */
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --mssa-black: #121212; /* 멋사검정 */
+  --mssa-orange: #ff6000; /* 멋사색 */
+
+  /* Gray */
+  --g1: #f8f8f9;
+  --g15: #f4f5f7;
+  --g2: #e9ebed;
+  --g3: #d8dbe0;
+  --g4: #cacdd2;
+  --g5: #9fa4a9;
+  --g55: #646b72;
+  --g6: #464c52;
+  --g7: #26282b;
+  --g8: #1b1d1f;
+
+  /* Semantic */
+  --bg: var(--mssa-black);
+  --surface: var(--g8);
+
+  --text: var(--g2);
+  --text-strong: var(--g1);
+  --text-muted: var(--g4);
+  --text-subtle: var(--g5);
+
+  --primary: var(--mssa-orange);
+  --on-primary: var(--g1);
+
+  --r-card: 28px;
+  --r-btn: 26px;
+  --r-ui: 24px;
+}
+
+/* bg-white 카드에 사용 */
+.surface-light {
+  background: var(--g1);
+  color: var(--g8);
+
+  --text: var(--g7);
+  --text-strong: var(--g8);
+  --text-muted: var(--g55);
+  /* --text-subtle: var(--g55); */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+
+  --color-text: var(--text);
+  --color-text-strong: var(--text-strong);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+
+  --radius-card: var(--r-card);
+  --radius-btn: var(--r-btn);
+  --radius-ui: var(--r-ui);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
+  background: var(--bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: var(--text);
+
+  font-family:
+    "Pretendard",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    sans-serif;
+}
+
+@layer components {
+  .card-base {
+    @apply rounded-card bg-surface text-text;
+  }
+
+  .button-base {
+    @apply flex bg-primary font-bold text-on-primary items-center justify-center whitespace-nowrap;
+  }
+
+  .t-strong {
+    @apply text-text-strong;
+  }
+  .t-muted {
+    @apply text-text-muted;
+  }
+  .t-subtle {
+    @apply text-text-subtle;
+  }
 }
