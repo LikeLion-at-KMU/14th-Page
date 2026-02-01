@@ -3,7 +3,7 @@ export const STAFF = [
     id: 1,
     name: "김태환",
     role: "대표",
-    role: "백엔드",
+    part: "백엔드",
     dept: "정보보안암호수학과 21학번",
     desc: "함께 만들면, 실패도 경험이 된다. 협업은 그 자체로 성장이다.",
   },

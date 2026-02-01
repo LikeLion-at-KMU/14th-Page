@@ -3,35 +3,37 @@ import Image from "next/image"; // 1. next/image 임포트
 
 export default function ProfileCard({ member }) {
   return (
-    <div className="card-base group flex flex-col overflow-hidden transition-all hover:-translate-y-1  ">
-      <div className="relative aspect-square w-full overflow-hidden bg-g7">
-        {/*next/image 활용 */}
+    /* 1. aspect-[300/520] 제거: 내용에 맞게 짧아지도록 설정 */
+    <div className="snap-start snap-always scroll-mt-[200px] bg-[var(--surface)] group flex flex-col overflow-hidden transition-all hover:-translate-y-1 rounded-[var(--r-card)] border border-[var(--g6)]/10 shadow-sm">
+      {/* 2. 이미지: 정사각형을 유지하되 가로 폭이 좁아지면 세로도 같이 짧아짐 */}
+      <div className="relative aspect-square w-full overflow-hidden bg-[var(--g7)]">
         <Image
           src={`/STAFF/${member.name}.png`}
-          alt={`${member.name} 운영진 프로필`}
-          fill // 부모 요소(aspect-square)를 가득 채움
-          /* sizes: 그리드 레이아웃에 맞춰 대략적인 이미지 크기 */
-          sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-          className="object-cover grayscale-[20%] transition-all group-hover:grayscale-0 group-hover:scale-105"
+          alt={member.name}
+          fill
+          sizes="(max-width: 768px) 50vw, 25vw"
+          className="object-cover object-[top] grayscale-[15%] transition-all group-hover:grayscale-0 group-hover:scale-105"
         />
       </div>
 
-      {/* 텍스트 영역 */}
-      <div className="flex flex-col p-6">
-        <span className="text-xs font-bold text-primary mb-4">
+      {/* 3. 텍스트 영역: p-5에서 p-[16px]로 줄임 */}
+      <div className="flex flex-col p-[16px]">
+        <span className="text-[12px] font-bold text-[var(--primary)] mb-[4px]">
           {member.role}
         </span>
 
-        <div className="flex flex-col gap-1 mb-4">
-          <h3 className="t-strong text-xl font-bold leading-tight">
+        {/* 4. 이름/학과 간격: mb-5에서 mb-[12px]로 축소 */}
+        <div className="flex flex-col gap-0.5 mb-[12px]">
+          <h3 className="text-[var(--text-strong)] text-[20px] font-bold leading-tight">
             {member.name}
           </h3>
-          <span className="t-muted text-sm font-medium">{member.dept}</span>
+          <span className="text-[var(--text-muted)] text-[13px] font-medium">
+            {member.dept}
+          </span>
         </div>
 
-        {/* 한줄 소개 박스 */}
-        <div className="rounded-xl rounded-tl-none bg-[var(--g7)] border border-[var(--g6)]/60 p-4">
-          <p className="text-[var(--g3)]  text-sm font-medium leading-relaxed whitespace-pre-line">
+        <div className="rounded-[12px] rounded-tl-none bg-[var(--g7)] border border-[var(--g6)]/50 p-[10px]">
+          <p className="text-[var(--text-strong)] text-[13px] font-medium leading-[1.4] whitespace-pre-line line-clamp-2">
             {member.desc}
           </p>
         </div>
