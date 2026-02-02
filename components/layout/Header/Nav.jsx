@@ -10,14 +10,15 @@ export default function HeaderNav() {
     const isActive = pathname === path;
     return [
       "text-[14px] leading-[17px]",
-      isActive 
-        ? "font-bold text-text-strong" 
+      isActive
+        ? "font-bold text-text-strong"
         : "font-semibold text-text-muted hover:text-text-strong",
-    ]
+    ];
   };
 
   return (
-    <nav className="flex items-center gap-[60px] whitespace-nowrap">
+    /* gap-[15px] md:gap-[60px]: 모바일에서 공간 확보 */
+    <nav className="flex items-center gap-[48px] md:gap-[60px] whitespace-nowrap">
       <Link href="/" className={linkClass("/")}>
         소개
       </Link>
