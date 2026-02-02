@@ -34,7 +34,7 @@ export default function Staff() {
        ${
          filter === cat
            ? "bg-[var(--mssa-orange)] text-[var(--g1)] shadow-md"
-           : "text-[var(--g3)] hover:text-[var(--g1)]"
+           : "text-[var(--g5)] hover:text-[var(--g1)]"
        }`}
             >
               {cat}
