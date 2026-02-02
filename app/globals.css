@@ -139,7 +139,7 @@ body {
     border-radius: var(--r-card);
     padding: 2px;
     background: conic-gradient(
-      from 0deg,
+      from var(--angle),
       rgba(255, 119, 16, 0.3) 0deg,
       rgba(65, 65, 65, 0.3) 45deg,
       rgba(255, 119, 16, 0.3) 90deg,
@@ -159,5 +159,22 @@ body {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+
+    animation: hue-spin 7s linear infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* 2) 각도만 도는 키프레임 */
+@keyframes hue-spin {
+  to {
+    --angle: 360deg;
   }
 }
