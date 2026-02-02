@@ -38,7 +38,7 @@ export default function StatsCard() {
   return(
     <div className="w-full max-w-[912px] rounded-card bg-surface">
       <div className="flex items-center justify-center gap-[60px] py-[48px]">
-        <Stat label="시작된 지" value="13" suffix="년" />
+        <Stat label="시작된 지" value="14" suffix="년" />
         <Stat label="참여 대학" value="80+" />
         <Stat label="멋대 출신 학생 수" value="14,000+" />
         <Stat label="누적 완성 서비스" value="1,800+"/>
