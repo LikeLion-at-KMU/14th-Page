@@ -137,18 +137,18 @@ body {
     inset: 0;
     z-index: 2;
     border-radius: var(--r-card);
-    padding: 1px;
+    padding: 2px;
     background: conic-gradient(
       from 0deg,
-      rgba(255, 119, 16, 0.2) 0deg,
-      rgba(65, 65, 65, 0.2) 45deg,
-      rgba(255, 119, 16, 0.2) 90deg,
-      rgba(65, 65, 65, 0.2) 135deg,
-      rgba(255, 119, 16, 0.2) 180deg,
-      rgba(65, 65, 65, 0.2) 225deg,
-      rgba(255, 119, 16, 0.2) 270deg,
-      rgba(65, 65, 65, 0.2) 315deg,
-      rgba(255, 119, 16, 0.2) 360deg
+      rgba(255, 119, 16, 0.3) 0deg,
+      rgba(65, 65, 65, 0.3) 45deg,
+      rgba(255, 119, 16, 0.3) 90deg,
+      rgba(65, 65, 65, 0.3) 135deg,
+      rgba(255, 119, 16, 0.3) 180deg,
+      rgba(65, 65, 65, 0.3) 225deg,
+      rgba(255, 119, 16, 0.3) 270deg,
+      rgba(65, 65, 65, 0.3) 315deg,
+      rgba(255, 119, 16, 0.3) 360deg
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
