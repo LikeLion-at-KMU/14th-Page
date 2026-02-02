@@ -17,16 +17,16 @@ function ActivityRow({ month, title, desc, note, imageSrc, imgPos = "50% 50%", i
         />
       </div>
 
-      {/* right content ... (기존 그대로) */}
-      <div className="absolute left-[300px] top-0 flex h-[312px] w-[512px] items-center justify-center rounded-r-[28px] bg-[var(--g1)]">
+      {/* right content */}
+      <div className="surface-light absolute left-[300px] top-0 flex h-[312px] w-[512px] items-center justify-center rounded-r-[28px]">
         <div className="flex w-[416px] flex-col gap-4">
-          <div className="flex flex-col items-start gap-3">
+          <div className="flex flex-col items-start gap-3 whitespace-normal break-keep">
             <p className="text-[20px] font-semibold leading-[24px] tracking-[-0.02em] text-primary">{month}</p>
-            <p className="text-[28px] font-bold leading-[33px] text-[var(--g8)]">{title}</p>
-            <p className="text-[20px] leading-[28px] tracking-[-0.02em] text-[var(--g7)]">{desc}</p>
+            <p className="text-[28px] font-bold leading-[33px] text-text-strong">{title}</p>
+            <p className="text-[20px] leading-[28px] tracking-[-0.02em] text-text">{desc}</p>
           </div>
           {note ? (
-            <p className="text-[16px] leading-[19px] tracking-[-0.02em] text-[var(--g55)]">{note}</p>
+            <p className="text-[16px] leading-[19px] tracking-[-0.02em] text-text-muted">{note}</p>
           ) : null}
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function Activities() {
             주요 활동
           </h2>
           <p className="text-[20px] font-medium leading-[24px] text-[var(--g3)]">
-            한 해 동안 다양한 활동을 하며 협업 경험을 쌓을 수 있습니다.
+            한 해 동안 다양한 활동을 하며 <span className="text-primary">협업 경험</span>을 쌓을 수 있습니다.
           </p>
         </div>
 
