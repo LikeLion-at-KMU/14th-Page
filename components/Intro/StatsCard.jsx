@@ -7,14 +7,14 @@ function Stat({label, value, suffix}) {
     <div className="flex flex-col items-center justify-center gap-4">
       <div className="text-[20px] font-semibold leading-[140%] text-[var(--g3)]">{label}</div>
       <div className="relative h-[78px] tabular-nums">
-        {/* 최종 값으로 너비 예약 (보이지 않음) */}
+        {/* 최종 값으로 너비 예약 (보이지 않는 더미값) */}
         <div className="invisible flex items-end justify-center gap-1" aria-hidden="true">
           <span className="text-[56px] font-bold leading-[140%] tracking-[-0.02em]">{value}</span>
           {suffix && (
             <span className="pb-[12px] text-[32px] font-bold leading-[140%] tracking-[-0.02em]">{suffix}</span>
           )}
         </div>
-        {/* 실제 애니메이션 값 (absolute로 너비 변해도 레이아웃 안 흔들림) */}
+        {/* 실제 애니메이션 값 */}
         <div className="absolute inset-0 flex items-end justify-center gap-1">
           <span className="text-[56px] font-bold leading-[140%] tracking-[-0.02em] text-primary">
             <AnimatedCounter to={numericValue} />
