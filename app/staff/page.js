@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ProfileCard from "@/components/staff/ProfileCard";
+import ProfileCard from "@/components/Staff/ProfileCard";
 import { STAFF } from "@/constants/staff";
 
 export default function Staff() {
