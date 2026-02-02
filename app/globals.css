@@ -111,4 +111,53 @@ body {
   .t-subtle {
     @apply text-text-subtle;
   }
+
+  /* 트랙 카드 */
+  .track-card {
+    position: relative;
+    border-radius: var(--r-card);
+  }
+
+  .track-card-inner {
+    overflow: hidden;
+    border-radius: var(--r-card);
+    background: var(--surface);
+    background-image: radial-gradient(
+      49.31% 45.79% at 48.47% 38.48%,
+      rgba(255, 119, 16, 0.2) 4.08%,
+      rgba(255, 193, 59, 0.06) 51.44%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* Diamond inside stroke 1px */
+  .track-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: var(--r-card);
+    padding: 1px;
+    background: conic-gradient(
+      from 0deg,
+      rgba(255, 119, 16, 0.2) 0deg,
+      rgba(65, 65, 65, 0.2) 45deg,
+      rgba(255, 119, 16, 0.2) 90deg,
+      rgba(65, 65, 65, 0.2) 135deg,
+      rgba(255, 119, 16, 0.2) 180deg,
+      rgba(65, 65, 65, 0.2) 225deg,
+      rgba(255, 119, 16, 0.2) 270deg,
+      rgba(65, 65, 65, 0.2) 315deg,
+      rgba(255, 119, 16, 0.2) 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }

@@ -2,33 +2,26 @@ import Link from "next/link";
 
 function TrackCard({ roleEn, roleKo, imageSrc }) {
   return (
-    <div className="relative overflow-hidden rounded-card bg-surface w-[320px]">
-      <div className="relative aspect-[320/412] w-full">
-        <div className="absolute inset-0 rounded-card bg-[radial-gradient(49.31%_45.79%_at_48.47%_38.48%,rgba(255,119,16,0.20)_4.08%,rgba(255,193,59,0.06)_51.44%,rgba(0,0,0,0)_100%)]" />
-        <div className="absolute inset-0 rounded-card bg-surface" />
-
+    <div className="track-card w-[320px]">
+      <div className="track-card-inner relative h-[412px] w-full">
         {imageSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={imageSrc}
             alt=""
             draggable={false}
-            className="absolute left-1/2 top-[48px] w-[226px] h-[214px]  -translate-x-1/2 object-contain"
+            className="absolute left-1/2 top-[48px] h-[214px] w-[226px] -translate-x-1/2 object-cover"
           />
         ) : null}
 
         <div className="absolute left-[36px] right-[36px] top-[294px] flex flex-col gap-2">
-          <p className="text-[20px] font-medium leading-[24px] text-primary">
-            {roleEn}
-          </p>
-          <p className="text-[32px] font-semibold leading-[43px] text-text-strong">
-            {roleKo}
-          </p>
+          <p className="text-[20px] font-medium leading-[24px] text-primary">{roleEn}</p>
+          <p className="text-[32px] font-semibold leading-[38px] text-text-strong">{roleKo}</p>
         </div>
       </div>
     </div>
   );
 }
+
 
 export default function Tracks() {
   return (
