@@ -1,3 +1,5 @@
+import SectionLayout from "@/components/common/SectionLayout";
+
 function ActivityRow({ month, title, desc, note, imageSrc, imgPos = "50% 50%", imgScale = 1 }) {
   return (
     <div className="relative h-[312px] w-[812px]">
@@ -10,8 +12,8 @@ function ActivityRow({ month, title, desc, note, imageSrc, imgPos = "50% 50%", i
           draggable={false}
           className="h-full w-full object-cover"
           style={{
-            objectPosition: imgPos,              // 핵심: 어디를 중심으로 보여줄지
-            transform: `scale(${imgScale})`,     // 필요하면 확대(줌)
+            objectPosition: imgPos,
+            transform: `scale(${imgScale})`,
             transformOrigin: "center",
           }}
         />
@@ -36,59 +38,47 @@ function ActivityRow({ month, title, desc, note, imageSrc, imgPos = "50% 50%", i
 
 export default function Activities() {
   return (
-    <section className="py-[100px]">
-      <div className="mx-auto flex w-[1440px] flex-col items-center gap-[60px]">
-        {/* title block */}
-        <div className="flex w-[563px] flex-col items-center gap-7 text-center">
-          <h2 className="text-[40px] font-bold leading-[48px] text-text-strong">
-            주요 활동
-          </h2>
-          <p className="text-[20px] font-medium leading-[24px] text-[var(--g3)]">
-            한 해 동안 다양한 활동을 하며 <span className="text-primary">협업 경험</span>을 쌓을 수 있습니다.
-          </p>
-        </div>
+    <SectionLayout
+      title="주요 활동"
+      description={<>한 해 동안 다양한 활동을 하며 <span className="text-primary">협업 경험</span>을 쌓을 수 있습니다.</>}
+    >
+      <div className="flex w-[812px] flex-col gap-5">
+        <ActivityRow
+          month="5월"
+          title="아이디어톤"
+          desc="전국 멋쟁이사자처럼 대학이 모두 참여하는 14기 첫 연합 행사입니다. 1차 예선(학교별 심사), 2차 예선(학교 그룹별 심사), 3차 본선 총 세 단계로 진행됩니다."
+          note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
+          imageSrc="/activities/idea.png"
+          imageClassName="w-[868px] left-[-249px] top-0"
+        />
 
-        {/* list */}
-        <div className="flex w-[812px] flex-col gap-5">
-          <ActivityRow
-            month="5월"
-            title="아이디어톤"
-            desc="전국 멋쟁이사자처럼 대학이 모두 참여하는 14기 첫 연합 행사입니다. 1차 예선(학교별 심사), 2차 예선(학교 그룹별 심사), 3차 본선 총 세 단계로 진행됩니다."
-            note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
-            imageSrc="/activities/idea.png"
-            // Figma: width 868, left -249 처럼 “크게 깔고 크롭”해야 하면 아래처럼 조정
-            imageClassName="w-[868px] left-[-249px] top-0"
-          />
+        <ActivityRow
+          month="여름방학"
+          title="중앙해커톤"
+          desc="전국 멋쟁이사자처럼 대학이 모두 참여하는 여름방학 최대 규모의 해커톤입니다. 기획부터 디자인, 개발, 배포까지 서비스를 직접 만들어 볼 수 있는 기회입니다."
+          note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
+          imageSrc="/activities/central.png"
+          imageClassName="w-[569px] left-[-92px] top-0"
+        />
 
-          <ActivityRow
-            month="여름방학"
-            title="중앙해커톤"
-            desc="전국 멋쟁이사자처럼 대학이 모두 참여하는 여름방학 최대 규모의 해커톤입니다. 기획부터 디자인, 개발, 배포까지 서비스를 직접 만들어 볼 수 있는 기회입니다."
-            note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
-            imageSrc="/activities/central.png"
-            imageClassName="w-[569px] left-[-92px] top-0"
-          />
+        <ActivityRow
+          month="11월"
+          title="4호선톤"
+          desc="대규모 지역 연합 해커톤입니다. 다른 학교의 학생들과 함께 팀을 이루어 해커톤을 진행합니다. 작년에는 역대 최대 규모로, 9개 대학이 함께했습니다."
+          note="*13기 기준 설명으로, 14기에는 세부 사항이 달라질 수 있습니다."
+          imageSrc="/activities/line4.png"
+          imageClassName="h-[400px] top-[-12px]"
+        />
 
-          <ActivityRow
-            month="11월"
-            title="4호선톤"
-            desc="대규모 지역 연합 해커톤입니다. 다른 학교의 학생들과 함께 팀을 이루어 해커톤을 진행합니다. 작년에는 역대 최대 규모로, 9개 대학이 함께했습니다."
-            note="*13기 기준 설명으로, 14기에는 세부 사항이 달라질 수 있습니다."
-            imageSrc="/activities/line4.png"
-            // Figma: 300x400, top -12
-            imageClassName="h-[400px] top-[-12px]"
-          />
-
-          <ActivityRow
-            month="12월"
-            title="교내해커톤"
-            desc="마지막 공식 행사이자 수료를 위한 필수 해커톤입니다. 제한된 시간 동안 협업과 문제 해결 능력을 집중적으로 경험할 수 있는 행사입니다."
-            note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
-            imageSrc="/activities/school.png"
-            imageClassName="w-[433px] left-[-67px] top-[-13px]"
-          />
-        </div>
+        <ActivityRow
+          month="12월"
+          title="교내해커톤"
+          desc="마지막 공식 행사이자 수료를 위한 필수 해커톤입니다. 제한된 시간 동안 협업과 문제 해결 능력을 집중적으로 경험할 수 있는 행사입니다."
+          note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
+          imageSrc="/activities/school.png"
+          imageClassName="w-[433px] left-[-67px] top-[-13px]"
+        />
       </div>
-    </section>
+    </SectionLayout>
   );
 }
