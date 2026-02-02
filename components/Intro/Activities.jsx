@@ -46,7 +46,7 @@ export default function Activities() {
         <ActivityRow
           month="5월"
           title="아이디어톤"
-          desc="전국 멋쟁이사자처럼 대학이 모두 참여하는 14기 첫 연합 행사입니다. 1차 예선(학교별 심사), 2차 예선(학교 그룹별 심사), 3차 본선 총 세 단계로 진행됩니다."
+          desc={<>전국 멋쟁이사자처럼 대학이 모두 참여하는 14기 첫 연합 행사입니다. 1차 예선(학교별 심사), 2차 예선<br/>(학교 그룹별 심사), 3차 본선 총 세 단계로 진행됩니다.</>}
           note="*14기 필수 참여 행사로, 불참 시 수료증 발급 불가합니다."
           imageSrc="/activities/idea.png"
           imageClassName="w-[868px] left-[-249px] top-0"
