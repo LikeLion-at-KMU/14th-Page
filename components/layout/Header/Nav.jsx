@@ -12,7 +12,7 @@ export default function HeaderNav() {
       "text-[14px] leading-[17px]",
       isActive
         ? "font-bold text-text-strong"
-        : "font-semibold text-text-muted hover:text-text-strong",
+        : "font-semibold text-text-subtle hover:text-text-strong",
     ];
   };
 
