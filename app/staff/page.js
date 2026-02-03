@@ -6,13 +6,13 @@ import { STAFF } from "@/constants/staff";
 
 export default function Staff() {
   const [filter, setFilter] = useState("전체");
-  const categories = ["전체", "기획/디자인", "백엔드", "프론트엔드"];
+  const categories = ["전체", "프론트엔드", "백엔드", "기획/디자인"];
 
   const filteredMembers =
     filter === "전체" ? STAFF : STAFF.filter((m) => m.part === filter);
 
   return (
-    <main className="h-screen overflow-y-auto snap-y snap-proximity px-4 md:px-[70px] md:py-[40px]  py-[108px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+    <main className="h-screen overflow-y-auto  px-4 md:px-[70px] md:py-[40px]  py-[108px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <div className="mx-auto max-w-6xl mt-11">
         {/* 헤더 섹션 */}
         <div className="mb-[24px] md:mb-[40px] text-center">
@@ -30,8 +30,9 @@ export default function Staff() {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-7 py-[9px] rounded-full text-sm font-semibold transition-all text-[12px] px-[16px] py-[4px] 
-        md:text-sm md:px-7 md:py-[11px]
+              className={`rounded-full font-semibold transition-all whitespace-nowrap 
+        text-[12px] py-[4px] px-[16px]
+        md:text-base md:py-[8px] md:px-[24px]
        ${
          filter === cat
            ? "bg-[var(--mssa-orange)] text-[var(--g1)] shadow-md"
@@ -46,10 +47,7 @@ export default function Staff() {
         {/* 운영진 그리드 */}
         <div className="grid grid-cols-2 gap-[16px] md:grid-cols-3 lg:grid-cols-4 xl:gap-[24px] max-w-[1000px] mx-auto">
           {filteredMembers.map((member) => (
-            <div
-              key={member.id}
-              className="snap-start snap-always scroll-mt-[700px]"
-            >
+            <div key={member.id}>
               <ProfileCard member={member} />
             </div>
           ))}
