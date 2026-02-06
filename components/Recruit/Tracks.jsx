@@ -5,7 +5,7 @@ export default function Tracks() {
   return (
     <SectionLayout
       title="트랙 소개"
-      description={<>프론트엔드, 백엔드, 기획/디자인 총 3가지 트랙 중 하나를 선택해 지원할 수 있습니다.<br />트랙별 인재상은 인스타그램 카드뉴스를 확인해 주세요.</>}
+      description={<>프론트엔드, 백엔드, 기획/디자인 총 3가지 트랙 중 <br className="block md:hidden"/>하나를 선택해 지원할 수 있습니다.<br />트랙별 인재상은 인스타그램 카드뉴스를 확인해 주세요.</>}
     >
       <div className="flex flex-col w-full items-center justify-center gap-8">
         <TrackCard

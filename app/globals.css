@@ -123,6 +123,10 @@ body {
     --img-panel-w: 260px;
     --img-panel-h: 220px;
     --img-panel-r: 24px;
+    --img-grad-x: 48.47%;
+    --img-grad-y: 45.48%;
+    --img-grad-size-x: 49.31%;
+    --img-grad-size-y: 45.79%;
   }
 
   .track-card-inner {
@@ -141,7 +145,8 @@ body {
     width: calc(var(--img-panel-w) + 80px);
     height: calc(var(--img-panel-h) + 80px);
     background: radial-gradient(
-      49.31% 45.79% at 48.47% 45.48%,
+      var(--img-grad-size-x) var(--img-grad-size-y) at var(--img-grad-x)
+        var(--img-grad-y),
       rgba(255, 119, 16, 0.2) 4.08%,
       rgba(255, 193, 59, 0.06) 51.44%,
       rgba(0, 0, 0, 0) 100%

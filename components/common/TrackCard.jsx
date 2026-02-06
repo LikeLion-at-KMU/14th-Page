@@ -78,26 +78,36 @@ function TrackCardMobile({
   imageSrc,
   className = "",
 }) {
-  // tall: 105x170, wide: 341x118
+  // wide: 336x134 (Figma 모바일 스펙)
   if (variant === "wide") {
     return (
-      <div className={`track-card track-card--imgpanel w-[341px] ${className}`.trim()}>
-        <div className="track-card-inner relative h-[118px] w-full">
+      <div 
+        className={`track-card track-card--imgpanel w-[336px] ${className}`.trim()}
+        style={{
+          "--img-grad-x": "12.5%",
+          "--img-grad-y": "27%",
+          "--img-grad-size-x": "14.5%",
+          "--img-grad-size-y": "14.5%",
+        }}  
+      >
+        <div className="track-card-inner flex h-[134px] w-full items-center px-4 py-5 gap-4">
           {imageSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={imageSrc}
               alt=""
               draggable={false}
-              className="absolute left-[55px] top-[59px] h-[70px] w-[74px] -translate-1/2 object-cover"
+              className="h-[80px] w-[84px] object-cover shrink-0"
             />
           ) : null}
 
-          <div className="track-card-content absolute left-[110px] right-[15px] top-[20px] flex flex-col gap-1">
-            <p className="text-[8px] font-medium leading-[10px] text-primary">{roleEn}</p>
-            <p className="text-[12px] font-semibold leading-[14px] text-text-strong">{roleKo}</p>
+          <div className="track-card-content flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
+              <p className="text-[10px] font-medium leading-[12px] text-primary">{roleEn}</p>
+              <p className="text-[12px] font-semibold leading-[14px] text-text-strong">{roleKo}</p>
+            </div>
             {desc ? (
-              <p className="mt-1 text-[8px] leading-[140%] text-text-muted break-keep">{desc}</p>
+              <p className="text-[10px] leading-[160%] text-text-muted break-keep">{desc}</p>
             ) : null}
           </div>
         </div>
