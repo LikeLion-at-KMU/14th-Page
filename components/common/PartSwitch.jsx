@@ -9,7 +9,7 @@ const ITEMS = [
   { key: "design", label: "기획/디자인", w: 142, wMobile: 89 },
 ];
 
-export default function PartSwitch({ value, onChange }) {
+export default function PartSwitch({ value, onChange, scopeId }) {
   return (
     <>
       {/* 데스크톱: 460x52 */}
@@ -32,7 +32,7 @@ export default function PartSwitch({ value, onChange }) {
             >
               {active ? (
                 <motion.span
-                  layoutId="active-pill-desktop"
+                  layoutId={`${scopeId}-active-pill-desktop`}
                   className="absolute inset-0 rounded-[26px] bg-primary"
                   transition={{
                     type: "spring",
@@ -76,7 +76,7 @@ export default function PartSwitch({ value, onChange }) {
             >
               {active ? (
                 <motion.span
-                  layoutId="active-pill-mobile"
+                  layoutId={`${scopeId}-active-pill-mobile`}
                   className="absolute inset-0 rounded-[20px] bg-primary"
                   transition={{
                     type: "spring",

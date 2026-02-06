@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SectionLayout from "@/components/common/SectionLayout";
 import { CURRICULUM } from "@/constants/curriculums";
 import PartSwitch from "../common/PartSwitch";
@@ -27,7 +27,7 @@ export default function Curriculum() {
     >
       {/* 데스크톱 */}
       <div className="hidden md:flex w-[580px] flex-col items-center gap-6">
-        <PartSwitch value={part} onChange={setPart} />
+        <PartSwitch value={part} onChange={setPart} scopeId="recruit-curriculum"  />
 
         <div className="flex w-[580px] flex-col items-start gap-3">
           {rows.map((r) => (
