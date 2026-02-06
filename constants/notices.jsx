@@ -9,10 +9,10 @@ export const notices = [
     title: "수료 조건",
     desc: (
       <ol className="list-decimal pl-3 md:pl-5">
-        <li className="pl-0.5">중앙 아이디어톤 참여</li>
-        <li className="pl-0.5">중앙 해커톤 참여</li>
-        <li className="pl-0.5">2학기 외부 해커톤 참여(택 1)</li>
-        <li className="pl-0.5">교내 해커톤 참여</li>
+        <li className="md:pl-0.5">중앙 아이디어톤 참여</li>
+        <li className="md:pl-0.5">중앙 해커톤 참여</li>
+        <li className="md:pl-0.5">2학기 외부 해커톤 참여(택 1)</li>
+        <li className="md:pl-0.5">교내 해커톤 참여</li>
       </ol>
     ),
   },
