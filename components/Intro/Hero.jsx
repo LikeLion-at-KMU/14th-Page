@@ -2,9 +2,28 @@ import SectionLayout from "@/components/common/SectionLayout";
 
 export default function Hero({ children }) {
   return (
-    <div className="flex w-full flex-col items-center pt-[88px]">
+    <div className="flex w-full flex-col items-center pt-[140px] md:pt-[88px]">
       <SectionLayout
-        image = {<img src="/LikeLion_Logo.svg" alt="멋사대학 로고" width={207} height={52} draggable={false}/>}
+        image={
+          <>
+            {/* 모바일: 50x50 로고 */}
+            <img
+              src="/LikeLion_Logo.svg"
+              alt="멋사대학 로고"
+              className="block md:hidden w-[50px] h-[50px]"
+              draggable={false}
+            />
+            {/* 데스크톱: 207x52 로고 */}
+            <img
+              src="/LikeLion_Logo.svg"
+              alt="멋사대학 로고"
+              className="hidden md:block"
+              width={207}
+              height={52}
+              draggable={false}
+            />
+          </>
+        }
         title="멋쟁이사자처럼 at 국민대"
         description={
           <>

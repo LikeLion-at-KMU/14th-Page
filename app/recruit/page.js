@@ -5,7 +5,7 @@ import { Notice } from "../../components/Recruit/Notice";
 import Schedule from "@/components/Recruit/Schedule";
 export default function Page() {
   return (
-    <main className="flex flex-col items-center justify-center gap-[100px]">
+    <main className="flex flex-col items-center justify-center md:gap-[100px]">
       <Schedule />
       <Notice />
       <Tracks />
