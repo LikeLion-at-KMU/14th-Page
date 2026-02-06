@@ -3,13 +3,22 @@
 import { useState } from "react";
 import ProfileCard from "@/components/Staff/ProfileCard";
 import { STAFF } from "@/constants/staff";
+import PartSwitch from "@/components/common/PartSwitch";
+
+const PART_MAP = {
+  common: "전체",
+  front: "프론트엔드",
+  back: "백엔드",
+  design: "기획/디자인",
+};
 
 export default function Staff() {
-  const [filter, setFilter] = useState("전체");
-  const categories = ["전체", "프론트엔드", "백엔드", "기획/디자인"];
+  const [filter, setFilter] = useState("common");
 
   const filteredMembers =
-    filter === "전체" ? STAFF : STAFF.filter((m) => m.part === filter);
+    filter === "common"
+      ? STAFF
+      : STAFF.filter((m) => m.part === PART_MAP[filter]);
 
   return (
     <main className="h-screen overflow-y-auto  px-4 md:px-[70px] md:py-[40px]  py-[108px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -24,26 +33,14 @@ export default function Staff() {
           </p>
         </div>
 
-        {/* 필터 버튼 */}
-        <div className="mb-[30px] flex items-center bg-[var(--g7)] rounded-full w-fit mx-auto  gap-[16px] md:gap-0 bordershadow-2xl">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`rounded-full font-semibold transition-all whitespace-nowrap 
-        text-[12px] py-[4px] px-[16px]
-        md:text-base md:py-[8px] md:px-[24px]
-       ${
-         filter === cat
-           ? "bg-[var(--mssa-orange)] text-[var(--g1)] shadow-md"
-           : "text-[var(--g5)] hover:text-[var(--g1)]"
-       }`}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* 필터 스위치: 리팩토링 */}
+        <div className="mb-[30px] flex justify-center">
+          <PartSwitch
+            value={filter}
+            onChange={setFilter}
+            scopeId="staff-filter"
+          />
         </div>
-
         {/* 운영진 그리드 */}
         <div className="grid grid-cols-2 gap-[8px] md:gap-[12px] md:grid-cols-3 lg:grid-cols-4  max-w-[1000px] mx-auto">
           {filteredMembers.map((member) => (
