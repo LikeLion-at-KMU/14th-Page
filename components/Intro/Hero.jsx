@@ -4,7 +4,7 @@ export default function Hero({ children }) {
   return (
     <div className="flex w-full flex-col items-center pt-[88px]">
       <SectionLayout
-        image = {<img src="/LikeLion_Logo.svg" alt="멋사대학 로고" width={207} height={52}/>}
+        image = {<img src="/LikeLion_Logo.svg" alt="멋사대학 로고" width={207} height={52} draggable={false}/>}
         title="멋쟁이사자처럼 at 국민대"
         description={
           <>

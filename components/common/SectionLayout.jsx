@@ -7,9 +7,9 @@ export default function SectionLayout({ title, description, image, children, cla
           {title}
         </h2>
         {description && (
-          <p className="text-[20px] font-medium leading-[183%] text-text-muted">
+          <div className="text-[20px] font-medium leading-[183%] text-text-muted">
             {description}
-          </p>
+          </div>
         )}
       </div>
 

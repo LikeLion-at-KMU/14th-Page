@@ -1,27 +1,6 @@
 import Link from "next/link";
 import SectionLayout from "@/components/common/SectionLayout";
-
-function TrackCard({ roleEn, roleKo, imageSrc }) {
-  return (
-    <div className="track-card w-[320px]">
-      <div className="track-card-inner relative h-[412px] w-full">
-        {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt=""
-            draggable={false}
-            className="absolute left-1/2 top-[48px] h-[214px] w-[226px] -translate-x-1/2 object-cover"
-          />
-        ) : null}
-
-        <div className="absolute left-[36px] right-[36px] top-[294px] flex flex-col gap-2">
-          <p className="text-[20px] font-medium leading-[24px] text-primary">{roleEn}</p>
-          <p className="text-[32px] font-semibold leading-[38px] text-text-strong">{roleKo}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import TrackCard from '../common/TrackCard';
 
 
 export default function Tracks() {

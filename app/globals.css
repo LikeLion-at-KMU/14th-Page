@@ -116,21 +116,49 @@ body {
   .track-card {
     position: relative;
     border-radius: var(--r-card);
+
+    /* defaults (will be overridden by variant) */
+    --img-panel-left: 44px;
+    --img-panel-top: 44px;
+    --img-panel-w: 260px;
+    --img-panel-h: 220px;
+    --img-panel-r: 24px;
   }
 
   .track-card-inner {
+    position: relative;
     overflow: hidden;
     border-radius: var(--r-card);
     background: var(--surface);
-    background-image: radial-gradient(
-      49.31% 45.79% at 48.47% 38.48%,
+  }
+
+  /* image panel ON */
+  .track-card--imgpanel .track-card-inner::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--img-panel-left) - 30px);
+    top: calc(var(--img-panel-top) - 60px);
+    width: calc(var(--img-panel-w) + 80px);
+    height: calc(var(--img-panel-h) + 80px);
+    background: radial-gradient(
+      49.31% 45.79% at 48.47% 45.48%,
       rgba(255, 119, 16, 0.2) 4.08%,
       rgba(255, 193, 59, 0.06) 51.44%,
       rgba(0, 0, 0, 0) 100%
     );
+
+    z-index: 0;
+    pointer-events: none;
   }
 
-  /* Diamond inside stroke 1px */
+  /* content above the panel */
+  .track-card--imgpanel img,
+  .track-card--imgpanel .track-card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* stroke */
   .track-card::after {
     content: "";
     position: absolute;
@@ -161,20 +189,17 @@ body {
     pointer-events: none;
 
     animation: hue-spin 7s linear infinite;
-    transform-origin: center;
-    will-change: transform;
   }
-}
 
-@property --angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
+  @property --angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
 
-/* 2) 각도만 도는 키프레임 */
-@keyframes hue-spin {
-  to {
-    --angle: 360deg;
+  @keyframes hue-spin {
+    to {
+      --angle: 360deg;
+    }
   }
 }
