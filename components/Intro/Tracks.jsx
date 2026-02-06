@@ -28,7 +28,7 @@ export default function Tracks() {
       </div>
 
       <Link
-        href="/recruit"
+        href="/recruit#curriculum"
         className="inline-flex h-[40px] md:h-[97px] w-[194px] md:w-[391px] items-center justify-center rounded-[10px] md:rounded-ui bg-text px-6 md:px-[48px] py-3 md:py-[32px] text-[12px] md:text-[28px] font-semibold leading-[14px] md:leading-[33px] text-[var(--g7)]"
       >
         세션 커리큘럼 보러 가기 →

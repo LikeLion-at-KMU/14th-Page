@@ -14,7 +14,7 @@ export default function Curriculum() {
 
   return (
     <SectionLayout
-      title="커리큘럼"
+      title="트랙별 세션 커리큘럼"
       description={
         <>
           개발, 디자인 역량을 키우기 위한 세션을 진행합니다. <br />
@@ -22,6 +22,8 @@ export default function Curriculum() {
           <br />자세한 일정은 추후 공지 예정입니다.
         </>
       }
+      id="curriculum"
+      className="scroll-mt-[140px] md:scroll-mt-[80px]"
     >
       {/* 데스크톱 */}
       <div className="hidden md:flex w-[580px] flex-col items-center gap-6">

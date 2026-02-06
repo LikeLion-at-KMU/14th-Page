@@ -1,6 +1,6 @@
-export default function SectionLayout({ title, description, image, children, className = "" }) {
+export default function SectionLayout({ title, description, image, children, className = "", id = ""}) {
   return (
-    <section className={`flex w-full flex-col items-center py-12 md:py-[100px] px-5 md:px-0 ${className}`}>
+    <section className={`flex w-full flex-col items-center py-12 md:py-[100px] px-5 md:px-0 ${className}`} id={id}>
       <div className="flex flex-col items-center gap-2 md:gap-6 text-center">
         {image && <div className="mb-1">{image}</div>}
         <h2 className="text-[20px] md:text-[40px] font-bold leading-[24px] md:leading-[48px] text-text-strong">
