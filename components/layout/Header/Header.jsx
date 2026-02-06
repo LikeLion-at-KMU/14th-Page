@@ -7,11 +7,12 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)] border-b border-[var(--g6)]/10 h-auto md:h-[88px] w-full py-4 md:py-0">
       <div className="mx-auto flex h-full max-w-[1440px] flex-col md:flex-row items-center justify-between px-[27px] md:px-[156px] gap-4 md:gap-0">
         {/* 로고: 모바일 중앙 정렬 / md: 왼쪽 정렬 */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center" draggable={false}>
           <img
             src="KMU_Logo.png"
             alt="LIKELION KMU"
             className="w-[60px] h-[60px] md:w-[80px] md:h-[80px]"
+            draggable={false}
           />
         </Link>
 
