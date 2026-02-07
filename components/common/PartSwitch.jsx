@@ -25,7 +25,7 @@ export default function PartSwitch({ value, onChange, scopeId }) {
               key={item.key}
               type="button"
               onClick={() => onChange(item.key)}
-              className="relative flex h-full items-center justify-center rounded-[26px] px-[24px] outline-none"
+              className="relative flex h-full items-center justify-center rounded-[26px] px-[24px] outline-none cursor-pointer"
               style={{ width: `${item.w}px` }}
               role="tab"
               aria-selected={active}

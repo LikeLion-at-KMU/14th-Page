@@ -15,13 +15,32 @@ const PART_MAP = {
 export default function Staff() {
   const [filter, setFilter] = useState("common");
 
-  const filteredMembers =
-    filter === "common"
-      ? STAFF
-      : STAFF.filter((m) => m.part === PART_MAP[filter]);
+  const filteredMembers = STAFF.filter((m) =>
+    filter === "common" ? true : m.part === PART_MAP[filter],
+  ).sort((a, b) => {
+    // 1. "전체(common)" 필터일 때 정렬 로직
+    if (filter === "common") {
+      // 대표 키워드가 포함된 사람을 최우선(-1)으로
+      if (a.role.includes("대표")) return -1;
+      if (b.role.includes("대표")) return 1;
+      return 0;
+    }
+
+    // 2. 파트별 필터(프론트, 백, 디자인)일 때 정렬 로직
+    // 파트장을 대표보다 앞에 세움.
+    if (a.role.includes("파트장")) return -1;
+    if (b.role.includes("파트장")) return 1;
+
+    // 그다음 대표
+    if (a.role.includes("대표")) return -1;
+    if (b.role.includes("대표")) return 1;
+
+    // 나머지는 원래 순서 유지
+    return 0;
+  });
 
   return (
-    <main className="h-screen overflow-y-auto  px-4 md:px-[70px] md:py-[40px]  py-[108px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+    <main className="  px-4 md:px-[70px] md:py-[40px]  py-[108px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ">
       <div className="mx-auto max-w-6xl mt-14">
         {/* 헤더 섹션 */}
         <div className="mb-[24px] md:mb-[32px] text-center">
@@ -42,7 +61,7 @@ export default function Staff() {
           />
         </div>
         {/* 운영진 그리드 */}
-        <div className="grid grid-cols-2 gap-[8px] md:gap-[12px] md:grid-cols-3 lg:grid-cols-4  max-w-[1000px] mx-auto">
+        <div className="grid grid-cols-2 gap-x-[8px] gap-y-[12px]  md:gap-x-[12px] md:gap-y-[20px] md:grid-cols-3 lg:grid-cols-4  max-w-[1000px] mx-auto">
           {filteredMembers.map((member) => (
             <div key={member.id}>
               <ProfileCard member={member} />
