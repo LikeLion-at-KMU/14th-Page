@@ -20,7 +20,9 @@ export default function Header() {
         <div className="flex items-center gap-[48px] md:gap-[60px]">
           <HeaderNav />
           <Link
-            href="https://example.com/apply"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfU5Z8FDiC5vUmG8qXwrz6ZPm-B5CeCcBXx_MspYp04zNnn_w/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[var(--mssa-orange)] text-[var(--g1)] h-[36px] md:h-[41px] rounded-full px-4 md:px-5 text-[12px] md:text-[14px] font-bold flex items-center justify-center whitespace-nowrap shadow-lg shadow-orange-500/20"
           >
             지원하기

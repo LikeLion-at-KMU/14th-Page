@@ -40,7 +40,7 @@ export default function FAQ() {
       title="자주 묻는 질문"
       description={
         <>
-          이외에도 궁금한 점이 있으시면 언제든 <Link href="https://www.instagram.com/likelion_kmu" target="_blank" className="text-primary">인스타그램(@likelion_kmu)</Link>으로<br className="hidden md:block" />문의 주시면 빠르게 답변 드리겠습니다.
+          이외에도 궁금한 점이 있으시면 언제든 <Link href="https://www.instagram.com/likelion_kmu" target="_blank" className="text-primary">인스타그램(@likelion_kmu)</Link>으로<br />문의 주시면 빠르게 답변 드리겠습니다.
         </>
       }
     >

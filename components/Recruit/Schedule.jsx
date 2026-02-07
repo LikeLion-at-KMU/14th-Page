@@ -45,8 +45,8 @@ function TimelineLineMobile() {
 /** 데스크톱 텍스트 */
 function TimelineStepDesktopText({ title, date }) {
   return (
-    <div className="flex w-[130px] flex-col items-center gap-1 whitespace-nowrap">
-      <p className="text-[24px] font-medium leading-[180%] text-center text-[var(--g3)]">
+    <div className="flex w-[130px] flex-col items-center whitespace-nowrap">
+      <p className="text-[24px] font-medium leading-[180%] text-center text-[var(--g2)] tracking-[-0.02em]">
         {title}
       </p>
       <p className="text-[20px] font-medium leading-[180%] text-center text-[var(--g5)]">
@@ -59,8 +59,8 @@ function TimelineStepDesktopText({ title, date }) {
 /** 모바일 텍스트(Figma: gap 2, 폰트 12/10) */
 function TimelineStepMobileText({ title, date, widthClass = "w-[65px]" }) {
   return (
-    <div className={`flex flex-col items-center gap-[2px] ${widthClass}`.trim()}>
-      <p className="text-[12px] font-medium leading-[180%] text-center text-[var(--g3)]">
+    <div className={`flex flex-col items-center whitespace-nowrap ${widthClass}`.trim()}>
+      <p className="text-[12px] font-medium leading-[180%] text-center text-[var(--g2)] tracking-[-0.02em]">
         {title}
       </p>
       <p className="text-[10px] font-medium leading-[180%] text-center text-[var(--g5)]">
@@ -149,7 +149,7 @@ export default function Schedule() {
         </div>
 
         <div className="mt-13 text-[16px] text-[var(--g5)] leading-[180%] text-center">
-          최종 합격자 대상 전체 OT는 3월 9일(월) ~ 13일(금) 중 하루에 진행될 예정입니다.
+          최종 합격자 대상 전체 OT는 3월 9일(월)에 진행될 예정입니다.
         </div>
       </div>
 

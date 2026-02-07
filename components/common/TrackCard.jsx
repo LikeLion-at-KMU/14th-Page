@@ -1,3 +1,5 @@
+import styles from "./TrackCard.module.css";
+
 const PANEL_PRESET = {
   tall: { left: 30, top: 90, width: 240, height: 240, radius: 24 },
   wide: { left: 30, top: 85, width: 180, height: 180, radius: 24 },
@@ -45,9 +47,9 @@ function TrackCardDesktop({
       ? "text-[28px] font-semibold leading-[33px]"
       : "text-[32px] font-semibold leading-[38px]";
 
-  const rootClass = `track-card track-card--imgpanel ${cardSizeClass} ${className}`.trim();
-  const innerClass = `track-card-inner relative w-full ${innerSizeClass}`.trim();
-  const contentClass = `track-card-content absolute flex flex-col ${contentPosClass}`.trim();
+  const rootClass = `${styles.card} ${styles.imgpanel} ${cardSizeClass} ${className}`.trim();
+  const innerClass = `${styles.inner} relative w-full ${innerSizeClass}`.trim();
+  const contentClass = `${styles.content} absolute flex flex-col ${contentPosClass}`.trim();
 
   return (
     <div className={rootClass} style={panelStyle}>
@@ -81,16 +83,16 @@ function TrackCardMobile({
   // wide: 336x134 (Figma 모바일 스펙)
   if (variant === "wide") {
     return (
-      <div 
-        className={`track-card track-card--imgpanel w-[336px] ${className}`.trim()}
+      <div
+        className={`${styles.card} ${styles.imgpanel} ${styles.mobileRadiusWide} w-[336px] ${className}`.trim()}
         style={{
           "--img-grad-x": "12.5%",
           "--img-grad-y": "27%",
           "--img-grad-size-x": "14.5%",
           "--img-grad-size-y": "14.5%",
-        }}  
+        }}
       >
-        <div className="track-card-inner flex h-[134px] w-full items-center px-4 py-5 gap-4">
+        <div className={`${styles.inner} flex h-[134px] w-full items-center px-4 py-5 gap-4`}>
           {imageSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -101,7 +103,7 @@ function TrackCardMobile({
             />
           ) : null}
 
-          <div className="track-card-content flex flex-col gap-3">
+          <div className={`${styles.content} flex flex-col gap-3`}>
             <div className="flex flex-col gap-2">
               <p className="text-[10px] font-medium leading-[12px] text-primary">{roleEn}</p>
               <p className="text-[12px] font-semibold leading-[14px] text-text-strong">{roleKo}</p>
@@ -117,21 +119,31 @@ function TrackCardMobile({
 
   // tall variant (기본)
   return (
-    <div className={`track-card track-card--imgpanel w-[105px] ${className}`.trim()}>
-      <div className="track-card-inner relative h-[170px] w-full">
-        {imageSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={imageSrc}
-            alt=""
-            draggable={false}
-            className="absolute left-1/2 top-[20px] h-[88px] w-[93px] -translate-x-1/2 object-cover"
-          />
-        ) : null}
+    <div
+      className={`${styles.card} ${styles.imgpanel} ${styles.mobileRadiusTall} w-[100px] ${className}`.trim()}
+      style={{
+        "--img-grad-x": "10%",
+        "--img-grad-y": "23%",
+        "--img-grad-size-x": "11.5%",
+        "--img-grad-size-y": "12.5%",
+      }}
+    >
+      <div className={`${styles.inner} flex h-[140px] w-full flex-col items-center justify-center px-[12px] py-[16px]`}>
+        <div className="flex h-[108px] w-[76px] flex-col items-center justify-center gap-2">
+          {imageSrc ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={imageSrc}
+              alt=""
+              draggable={false}
+              className="h-[72px] w-[76px] object-cover"
+            />
+          ) : null}
 
-        <div className="track-card-content absolute left-[12px] right-[12px] top-[121px] flex flex-col gap-1">
-          <p className="text-[8px] font-medium leading-[10px] text-primary">{roleEn}</p>
-          <p className="text-[13px] font-semibold leading-[16px] text-text-strong">{roleKo}</p>
+          <div className={`${styles.content} flex w-[76px] flex-col items-start gap-1`}>
+            <p className="text-[8px] font-medium leading-[10px] text-primary">{roleEn}</p>
+            <p className="text-[12px] font-semibold leading-[14px] text-text-strong">{roleKo}</p>
+          </div>
         </div>
       </div>
     </div>

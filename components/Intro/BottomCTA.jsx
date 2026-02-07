@@ -29,7 +29,7 @@ export default function BottomCTA(){
     <section className="hidden md:block flex w-full flex-col items-center py-[100px]">
       <div className="flex flex-col items-center gap-[157px]">
         <h2 className="text-center text-[48px] font-bold text-text-strong">멋쟁이사자처럼 at 국민대가<br />성공으로 도약할 여러분을<br />기다리고 있어요!</h2>
-        <CTAButton href="https://example.com/apply" label="지금 14기 아기사자 지원하기"/>
+        <CTAButton href="https://docs.google.com/forms/d/e/1FAIpQLSfU5Z8FDiC5vUmG8qXwrz6ZPm-B5CeCcBXx_MspYp04zNnn_w/viewform" label="지금 14기 아기사자 지원하기"/>
       </div>
     </section>
   )
