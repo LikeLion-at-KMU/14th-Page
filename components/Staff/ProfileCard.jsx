@@ -3,11 +3,12 @@ import Image from "next/image"; // 1. next/image 임포트
 
 export default function ProfileCard({ member }) {
   return (
-    <div className="h-full min-h-[317px] md:min-h-[430px] bg-[var(--surface)] group flex flex-col  overflow-hidden transition-all hover:-translate-y-1 rounded-[var(--r-card)] border border-[var(--g6)]/10 shadow-sm">
+    <div className="h-full w-full min-h-[317px] md:min-h-[430px] bg-[var(--surface)] group flex flex-col  overflow-hidden transition-all hover:-translate-y-1 rounded-[var(--r-card)] border border-[var(--g6)]/10 shadow-sm">
       <div className="relative w-full h-[157px] md:h-[230px] flex-shrink-0 overflow-hidden bg-[var(--g7)]">
         <Image
           src={`/STAFF/${member.name}.png`}
           alt={member.name}
+          draggable={false}
           fill
           sizes="(max-width: 768px) 50vw, 25vw"
           className="object-cover object-[top] grayscale-[15%] transition-all group-hover:grayscale-0 group-hover:scale-105"
@@ -19,9 +20,8 @@ export default function ProfileCard({ member }) {
           {member.role}
         </span>
 
-        {/*  이름/학과 간격 축소 */}
         <div className="flex flex-col gap-[6px] md:gap-[8px] mb-[12px] md:mb-[16px]">
-          <h3 className="text-[var(--text-strong)] text-[13px] md:text-[20px] font-bold leading-tight">
+          <h3 className="text-[var(--text-strong)] text-[13px] md:text-[16px] font-bold leading-tight">
             {member.name}
           </h3>
           <span className="text-[var(--text-muted)] text-[10px] md:text-[12px] font-medium">
@@ -30,7 +30,7 @@ export default function ProfileCard({ member }) {
         </div>
 
         <div className="rounded-[0_6px_6px_6px] md:rounded-[0_8px_8px_8px] bg-[var(--g7)] border border-[var(--g6)] p-[8px] md:p-[10px]">
-          <p className="text-[var(--g3)] text-[10px] md:text-[13px] font-medium leading-[1.4]  ">
+          <p className="text-[var(--g3)] text-[8px] md:text-[12px] font-medium leading-[1.4]  ">
             {member.desc}
           </p>
         </div>
