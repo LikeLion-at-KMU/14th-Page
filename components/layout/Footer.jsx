@@ -8,7 +8,7 @@ export default function Footer() {
         {/* [상단 그룹] 정보 및 네비게이션 */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           <div className="flex flex-col gap-1 md:gap-4">
-            <h2 className="text-[var(--text-strong)] text-[1.125rem] md:text-[1.375rem] font-semibold">
+            <h2 className="text-[var(--text-strong)] text-[14px] md:text-[24px] font-semibold">
               국민대학교 멋쟁이사자처럼
             </h2>
             <p className="text-[var(--text-subtle)] text-[0.75rem] md:text-[0.875rem] font-medium">
