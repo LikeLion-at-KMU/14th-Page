@@ -8,14 +8,16 @@ export default function Hero({ children }) {
           <>
             {/* 모바일: 50x50 로고 */}
             <img
-              src="/LikeLion_Logo.svg"
+              src="/LIKELION_LOGO.svg"
               alt="멋사대학 로고"
-              className="block md:hidden w-[50px] h-[50px]"
+              className="block md:hidden"
+              width={85}
+              height={22}
               draggable={false}
             />
             {/* 데스크톱: 207x52 로고 */}
             <img
-              src="/LikeLion_Logo.svg"
+              src="/LIKELION_LOGO.svg"
               alt="멋사대학 로고"
               className="hidden md:block"
               width={207}
