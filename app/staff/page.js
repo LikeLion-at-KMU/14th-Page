@@ -39,16 +39,23 @@ export default function Staff() {
     return 0;
   });
 
+  const STAFF_ITEMS = [
+    { key: "common", label: "전체", w: 83, wMobile: 53 }, // 여기서만 "전체"
+    { key: "front", label: "프론트엔드", w: 135, wMobile: 84 },
+    { key: "back", label: "백엔드", w: 100, wMobile: 64 },
+    { key: "design", label: "기획/디자인", w: 142, wMobile: 89 },
+  ];
+
   return (
-    <main className="  px-4 md:px-[70px] md:py-[40px]  py-[108px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ">
+    <main className="  px-4 md:px-[70px] pt-[108px] pb-[36px] md:pt-[40px] md:pb-[100px] min-h-[850px] md:min-h-[1270px] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ">
       <div className="mx-auto max-w-6xl mt-14">
         {/* 헤더 섹션 */}
         <div className="mb-[24px] md:mb-[32px] text-center">
           <h1 className="text-[var(--text-strong)] text-[20px] md:text-[36px] font-bold leading-[100%] md:leading-tight">
-            14기 운영진 소개
+            운영진 소개
           </h1>
           <p className="text-[var(--g3)] mt-[8px] md:mt-[24px] text-[12px] md:text-[16px] font-medium leading-[183%]">
-            멋사를 이끌어갈 운영진들
+            멋쟁이사자처럼 14기를 이끌고, 함께 성장해 나갈 운영진을 소개합니다.
           </p>
         </div>
 
@@ -56,6 +63,7 @@ export default function Staff() {
         <div className="mb-[30px] flex justify-center">
           <PartSwitch
             value={filter}
+            items={STAFF_ITEMS}
             onChange={setFilter}
             scopeId="staff-filter"
           />
