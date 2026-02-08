@@ -31,7 +31,7 @@ export function Notice() {
   return (
     <SectionLayout
       title="지원 전 필독 사항"
-      description={<>안 읽으시면 기디 파트장님이 찾아가서 혼내줍니다.</>}
+      description={<>지원 전 반드시 확인해야 할 중요한 안내 사항입니다.</>}
     >
       {/* 데스크톱: 2x2 그리드 */}
       <div className="hidden md:grid grid-cols-2 gap-5">

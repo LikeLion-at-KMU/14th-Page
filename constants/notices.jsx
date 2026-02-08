@@ -40,7 +40,7 @@ export const notices = [
       <div className="flex flex-col gap-[2px]">
         <span><span className="text-primary font-medium">노트북과 열정</span>만 가져오시면 됩니다!</span>
         <span>작업을 위해 노트북이 필요합니다.</span>
-        <span>열정 열정 열정 넘치는 기디 화이팅~</span>
+        <span>열정 넘치는 아기사자 화이팅 🦁</span>
       </div>
     ),
   },
