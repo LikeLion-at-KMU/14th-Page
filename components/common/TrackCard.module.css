@@ -1,0 +1,129 @@
+/* 트랙 카드 스타일 */
+.card {
+  position: relative;
+  border-radius: var(--r-card);
+
+  /* defaults (will be overridden by variant) */
+  --img-panel-left: 44px;
+  --img-panel-top: 44px;
+  --img-panel-w: 260px;
+  --img-panel-h: 220px;
+  --img-panel-r: 24px;
+  --img-grad-x: 48.47%;
+  --img-grad-y: 40.48%;
+  --img-grad-size-x: 49.31%;
+  --img-grad-size-y: 45.79%;
+}
+
+.inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: var(--surface);
+}
+
+/* image panel ON */
+.imgpanel .inner::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--img-panel-left) - 30px);
+  top: calc(var(--img-panel-top) - 60px);
+  width: calc(var(--img-panel-w) + 80px);
+  height: calc(var(--img-panel-h) + 80px);
+  background: radial-gradient(
+    var(--img-grad-size-x) var(--img-grad-size-y) at var(--img-grad-x)
+      var(--img-grad-y),
+    rgba(255, 119, 16, 0.2) 4.08%,
+    rgba(255, 193, 59, 0.06) 51.44%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* image above the panel */
+.imgpanel img {
+  position: relative;
+  z-index: 1;
+}
+
+/* content z-index only (position controlled by Tailwind) */
+.imgpanel .content {
+  z-index: 1;
+}
+
+/* stroke with hue-spin animation */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: var(--r-card);
+  padding: 2px;
+  background: conic-gradient(
+    from var(--angle),
+    rgba(255, 119, 16, 0.3) 0deg,
+    rgba(65, 65, 65, 0.3) 45deg,
+    rgba(255, 119, 16, 0.3) 90deg,
+    rgba(65, 65, 65, 0.3) 135deg,
+    rgba(255, 119, 16, 0.3) 180deg,
+    rgba(65, 65, 65, 0.3) 225deg,
+    rgba(255, 119, 16, 0.3) 270deg,
+    rgba(65, 65, 65, 0.3) 315deg,
+    rgba(255, 119, 16, 0.3) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+
+  animation: hue-spin 7s linear infinite;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes hue-spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* 모바일 tall용 radius (8px) + stroke padding (1px) */
+.mobileRadiusTall {
+  --r-card-mobile: 8px;
+  border-radius: var(--r-card-mobile);
+}
+
+.mobileRadiusTall .inner {
+  border-radius: var(--r-card-mobile);
+}
+
+.mobileRadiusTall::after {
+  border-radius: var(--r-card-mobile);
+  padding: 1px;
+}
+
+/* 모바일 wide용 radius (13px) + stroke padding (1px) */
+.mobileRadiusWide {
+  --r-card-mobile: 13px;
+  border-radius: var(--r-card-mobile);
+}
+
+.mobileRadiusWide .inner {
+  border-radius: var(--r-card-mobile);
+}
+
+.mobileRadiusWide::after {
+  border-radius: var(--r-card-mobile);
+  padding: 1px;
+}

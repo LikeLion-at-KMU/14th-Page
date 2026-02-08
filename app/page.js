@@ -8,7 +8,7 @@ import Annual from "@/components/Intro/Annual";
 
 export default function Page() {
   return (
-    <main className="flex flex-col items-center justify-center gap-12 md:gap-[100px] overflow-x-hidden ">
+    <main className="flex flex-col items-center justify-center md:gap-[100px] overflow-x-hidden">
       <Hero>
         <GalleryStrip />
         <StatsCard />

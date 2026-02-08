@@ -9,7 +9,7 @@ function NoticeItemDesktop({ icon, title, desc }) {
         <img src={icon} alt="" className="w-12 h-12 object-cover" draggable={false} />
         <p className="font-bold text-[24px] leading-[29px] text-[var(--g7)] tracking-[-0.02em]">{title}</p>
       </div>
-      <div className="text-[16px] leading-[140%] text-[var(--g6)] tracking-[-0.02em]">{desc}</div>
+      <div className="text-[16px] leading-[140%] text-[var(--g6)] tracking-[-0.02em] break-keep">{desc}</div>
     </div>
   );
 }
@@ -22,7 +22,7 @@ function NoticeItemMobile({ icon, title, desc }) {
         <img src={icon} alt="" className="w-6 h-6 object-cover" draggable={false} />
         <p className="font-bold text-[12px] leading-[14px] text-[var(--g7)] tracking-[-0.02em]">{title}</p>
       </div>
-      <div className="text-[9px] leading-[140%] text-[var(--g6)] tracking-[-0.02em]">{desc}</div>
+      <div className="text-[9px] leading-[140%] text-[var(--g6)] tracking-[-0.02em] break-keep">{desc}</div>
     </div>
   );
 }
