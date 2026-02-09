@@ -9,7 +9,7 @@ export default function HeaderNav() {
   const linkClass = (path) => {
     const isActive = pathname === path;
     return [
-      "text-[14px] leading-[17px]",
+      "text-[14px] md:text-[18px] leading-[17px]",
       isActive
         ? "font-bold text-text-strong"
         : "font-semibold text-text-subtle hover:text-text-strong",

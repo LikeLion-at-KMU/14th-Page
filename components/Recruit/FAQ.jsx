@@ -1,11 +1,26 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SectionLayout from "@/components/common/SectionLayout";
 import { faqs } from "@/constants/faqs";
 import Link from 'next/link';
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 /* 데스크톱 FAQ 아이템 */
 function FAQItemDesktop({ q, a }) {
   return (
-    <div className="w-[780px] rounded-[24px] bg-[var(--g8)] px-[48px] py-[32px]">
+    <motion.div
+      variants={itemVariants}
+      className="w-[780px] rounded-[24px] bg-[var(--g8)] px-[48px] py-[32px]"
+    >
       <div className="flex flex-col gap-3">
         <p className="text-[24px] font-semibold leading-[183%] text-text">
           <span className="text-primary mr-1">Q.</span> {q}
@@ -14,14 +29,17 @@ function FAQItemDesktop({ q, a }) {
           {a}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 /* 모바일 FAQ 아이템 */
 function FAQItemMobile({ q, a }) {
   return (
-    <div className="w-[335px] rounded-[12px] bg-[var(--g8)] px-5 py-4">
+    <motion.div
+      variants={itemVariants}
+      className="w-[335px] rounded-[12px] bg-[var(--g8)] px-5 py-4"
+    >
       <div className="flex flex-col gap-2">
         <p className="text-[12px] font-semibold leading-[183%] text-text">
           <span className="text-primary mr-1">Q.</span> {q}
@@ -30,7 +48,7 @@ function FAQItemMobile({ q, a }) {
           {a}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -45,18 +63,30 @@ export default function FAQ() {
       }
     >
       {/* 데스크톱 */}
-      <div className="hidden md:flex w-[780px] flex-col gap-5">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        className="hidden md:flex w-[780px] flex-col gap-5"
+      >
         {faqs.map((item) => (
           <FAQItemDesktop key={item.q} q={item.q} a={item.a} />
         ))}
-      </div>
+      </motion.div>
 
       {/* 모바일 */}
-      <div className="flex md:hidden w-[335px] flex-col gap-3">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        className="flex md:hidden w-[335px] flex-col gap-3"
+      >
         {faqs.map((item) => (
           <FAQItemMobile key={item.q} q={item.q} a={item.a} />
         ))}
-      </div>
+      </motion.div>
     </SectionLayout>
   );
 }
