@@ -1,4 +1,16 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SectionLayout from "@/components/common/SectionLayout";
+
+const columnVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 const schedule = [
   {
@@ -37,14 +49,17 @@ function ScheduleItem({ label }) {
 
 function PeriodColumn({ period, items }) {
   return (
-    <div className="flex w-[108px] md:w-[208px] flex-col gap-2 md:gap-4">
+    <motion.div
+      variants={columnVariants}
+      className="flex w-[108px] md:w-[208px] flex-col gap-2 md:gap-4"
+    >
       <PeriodHeader label={period} />
       <div className="flex flex-col gap-1 md:gap-3">
         {items.map((item) => (
           <ScheduleItem key={item} label={item} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -54,11 +69,21 @@ export default function Annual() {
       title="연간 일정"
       description="멋쟁이사자처럼 14기의 한 해 활동 흐름을 보여주는 연간 일정입니다."
     >
-      <div className="flex flex-row items-start gap-[10px] md:gap-7">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          visible: {
+            transition: { staggerChildren: 0.2 },
+          },
+        }}
+        className="flex flex-row items-start gap-[10px] md:gap-7"
+      >
         {schedule.map((col) => (
           <PeriodColumn key={col.period} period={col.period} items={col.items} />
         ))}
-      </div>
+      </motion.div>
     </SectionLayout>
   );
 }

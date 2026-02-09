@@ -1,5 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SectionLayout from "@/components/common/SectionLayout";
 import styles from "./BottomCTA.module.css";
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function BottomCTA() {
   return (
@@ -38,26 +50,42 @@ export default function BottomCTA() {
       </div>
 
       <SectionLayout className="relative z-10">
-        <h2 className="text-center text-[16px] md:text-[44px] font-semibold leading-[150%] text-[#F4F5F7]">
-          멋쟁이사자처럼 at 국민대가
-          <br />
-          성공으로 도약할 여러분을
-          <br />
-          기다리고 있어요!
-        </h2>
-
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfU5Z8FDiC5vUmG8qXwrz6ZPm-B5CeCcBXx_MspYp04zNnn_w/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-[50px] md:rounded-[100px] bg-[#FF6000] px-5 py-4 md:px-12 md:py-10 text-center text-[14px] md:text-[36px] font-bold leading-[17px] md:leading-[43px] text-[#F8F8F9] whitespace-nowrap transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
-          style={{
-            boxShadow:
-              "0px 0px 2.2px rgba(255,255,255,0.09), 0px 0px 22.8px #FF6000, inset -1px 0px 6.8px rgba(255,255,255,0.25)",
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.2 },
+            },
           }}
+          className="flex flex-col items-center gap-8 md:gap-[52px]"
         >
-          지금 14기 아기사자 지원하기
-        </a>
+          <motion.h2
+            variants={itemVariants}
+            className="text-center text-[16px] md:text-[44px] font-semibold leading-[150%] text-[#F4F5F7]"
+          >
+            멋쟁이사자처럼 at 국민대가
+            <br />
+            성공으로 도약할 여러분을
+            <br />
+            기다리고 있어요!
+          </motion.h2>
+
+          <motion.a
+            variants={itemVariants}
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfU5Z8FDiC5vUmG8qXwrz6ZPm-B5CeCcBXx_MspYp04zNnn_w/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-[50px] md:rounded-[100px] bg-[#FF6000] px-5 py-4 md:px-12 md:py-10 text-center text-[14px] md:text-[36px] font-bold leading-[17px] md:leading-[43px] text-[#F8F8F9] whitespace-nowrap transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
+            style={{
+              boxShadow:
+                "0px 0px 2.2px rgba(255,255,255,0.09), 0px 0px 22.8px #FF6000, inset -1px 0px 6.8px rgba(255,255,255,0.25)",
+            }}
+          >
+            지금 14기 아기사자 지원하기
+          </motion.a>
+        </motion.div>
       </SectionLayout>
     </div>
   );
