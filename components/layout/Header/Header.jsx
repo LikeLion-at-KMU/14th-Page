@@ -1,10 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import HeaderNav from "./Nav";
 import Link from "next/link";
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [transparent, setTransparent] = useState(isHome);
+
+  useEffect(() => {
+    if (!isHome) {
+      return;
+    }
+
+    const intro = document.getElementById("intro-section");
+    if (!intro) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setTransparent(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(intro);
+    return () => observer.unobserve(intro);
+  }, [isHome]);
+
   return (
     /* h-auto md:h-[88px]: 모바일에서는 내용에 따라 늘어나게, 데스크탑은 88px 고정 */
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)] border-b border-[var(--g6)]/10 h-auto md:h-[88px] w-full py-4 md:py-0">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 h-auto md:h-[88px] w-full py-4 md:py-0 transition-all duration-300 ${
+        transparent
+          ? "bg-transparent border-b border-transparent"
+          : "bg-[var(--bg)] border-b border-[var(--g6)]/10"
+      }`}
+    >
       <div className="mx-auto flex h-full max-w-[1440px] flex-col md:flex-row items-center justify-between px-[27px] md:px-[156px] gap-4 md:gap-0">
         {/* 로고: 모바일 중앙 정렬 / md: 왼쪽 정렬 */}
         <Link href="/" className="flex items-center" draggable={false}>
