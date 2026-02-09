@@ -1,9 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import SectionLayout from "@/components/common/SectionLayout";
 import { CURRICULUM } from "@/constants/curriculums";
 import PartSwitch from "../common/PartSwitch";
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" },
+  },
+};
 
 export default function Curriculum() {
   const [part, setPart] = useState("common");
@@ -27,11 +37,18 @@ export default function Curriculum() {
     >
       {/* 데스크톱 */}
       <div className="hidden md:flex w-[580px] flex-col items-center gap-6">
-        <PartSwitch value={part} onChange={setPart} scopeId="recruit-curriculum"  />
+        <PartSwitch value={part} onChange={setPart} scopeId="recruit-curriculum" />
 
-        <div className="flex w-[580px] flex-col items-start gap-3">
+        <motion.div
+          key={`desktop-${part}`}
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+          className="flex w-[580px] flex-col items-start gap-3"
+        >
           {rows.map((r) => (
-            <div
+            <motion.div
+              variants={itemVariants}
               key={`${part}-${r.round}-${r.title}`}
               className="flex h-[69px] w-[580px] items-center rounded-[12px] bg-[var(--g8)] px-[32px] py-[16px]"
             >
@@ -43,9 +60,9 @@ export default function Curriculum() {
                   {r.title}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {part === "common" ? (
           <p className="w-[580px] text-center text-[16px] font-normal leading-[183%] text-[var(--g5)]">
@@ -58,9 +75,16 @@ export default function Curriculum() {
       <div className="flex md:hidden w-[320px] flex-col items-center gap-4">
         <PartSwitch value={part} onChange={setPart} />
 
-        <div className="flex w-[320px] flex-col items-start gap-1.5">
+        <motion.div
+          key={`mobile-${part}`}
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+          className="flex w-[320px] flex-col items-start gap-1.5"
+        >
           {rows.map((r) => (
-            <div
+            <motion.div
+              variants={itemVariants}
               key={`${part}-${r.round}-${r.title}-mobile`}
               className="flex h-[42px] w-[320px] items-center rounded-[6px] bg-[var(--g8)] px-4 py-2.5"
             >
@@ -72,9 +96,9 @@ export default function Curriculum() {
                   {r.title}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {part === "common" ? (
           <p className="w-[320px] text-center text-[10px] font-normal leading-[183%] text-[var(--g5)]">

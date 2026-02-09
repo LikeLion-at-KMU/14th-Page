@@ -1,5 +1,16 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { timeline } from "@/constants/timeline";
 import SectionLayout from "../common/SectionLayout";
+
+const itemVariants = {
+  hidden: { clipPath: "inset(0 100% 0 0)" },
+  visible: {
+    clipPath: "inset(0 0% 0 0)",
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
 
 /** 데스크톱 수평선(원본 스타일) */
 function TimelineLineDesktop({ lineTop = 23 }) {
@@ -135,8 +146,13 @@ export default function Schedule() {
       className="mt-[140px] md:mt-[88px]"
     >
       {/* 데스크톱 */}
-      <div className="hidden md:flex w-[820px] flex-col items-center">
-        <div className="relative w-full">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.3 } } }}
+        className="hidden md:flex w-[820px] flex-col items-center"
+      >
+        <motion.div variants={itemVariants} className="relative w-full">
           {/* 수평선 */}
           <TimelineLineDesktop lineTop={lineTop} />
 
@@ -146,15 +162,20 @@ export default function Schedule() {
               <TimelineItemDesktop key={step.title} {...step} />
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-13 text-[16px] text-[var(--g5)] leading-[180%] text-center">
+        <motion.div variants={itemVariants} className="mt-13 text-[16px] text-[var(--g5)] leading-[180%] text-center">
           최종 합격자 대상 전체 OT는 3월 9일(월)에 진행될 예정입니다.
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* 모바일 (Figma: 330x76, 내부 row: 317x64, gap 16) */}
-      <div className="relative md:hidden w-[330px] h-[76px]">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={itemVariants}
+        className="relative md:hidden w-[330px] h-[76px]"
+      >
         {/* 수평선(데스크톱 느낌 축소본) */}
         <TimelineLineMobile />
 
@@ -169,7 +190,7 @@ export default function Schedule() {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </SectionLayout>
   );
 }
