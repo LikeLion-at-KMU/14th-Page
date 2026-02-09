@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Curriculum from "@/components/Recruit/Curriculum";
 import Tracks from "../../components/Recruit/Tracks";
 import FAQ from "@/components/Recruit/FAQ";
@@ -9,7 +10,9 @@ export default function Page() {
       <Schedule />
       <Notice />
       <Tracks />
-      <Curriculum />
+      <Suspense fallback={null}>
+        <Curriculum />
+      </Suspense>
       <FAQ />
     </main>
   );
