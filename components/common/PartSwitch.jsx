@@ -9,7 +9,12 @@ const ITEMS = [
   { key: "design", label: "기획/디자인", w: 142, wMobile: 89 },
 ];
 
-export default function PartSwitch({ value, onChange, scopeId }) {
+export default function PartSwitch({
+  items = ITEMS,
+  value,
+  onChange,
+  scopeId,
+}) {
   return (
     <>
       {/* 데스크톱: 460x52 */}
@@ -18,7 +23,7 @@ export default function PartSwitch({ value, onChange, scopeId }) {
         role="tablist"
         aria-label="커리큘럼 파트 필터"
       >
-        {ITEMS.map((item) => {
+        {items.map((item) => {
           const active = value === item.key;
           return (
             <button
