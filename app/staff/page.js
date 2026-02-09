@@ -51,10 +51,10 @@ export default function Staff() {
       <div className="mx-auto max-w-6xl mt-14">
         {/* 헤더 섹션 */}
         <div className="mb-[24px] md:mb-[32px] text-center">
-          <h1 className="text-[var(--text-strong)] text-[20px] md:text-[36px] font-bold leading-[100%] md:leading-tight">
+          <h1 className="text-[var(--text-strong)] text-[20px] md:text-[40px] font-bold leading-[100%] md:leading-tight">
             운영진 소개
           </h1>
-          <p className="text-[var(--g3)] mt-[8px] md:mt-[24px] text-[12px] md:text-[16px] font-medium leading-[183%]">
+          <p className="text-[var(--g3)] mt-[8px] md:mt-[24px] text-[10px] md:text-[20px] font-medium leading-[183%]">
             멋쟁이사자처럼 14기를 이끌고, 함께 성장해 나갈 운영진을 소개합니다.
           </p>
         </div>
