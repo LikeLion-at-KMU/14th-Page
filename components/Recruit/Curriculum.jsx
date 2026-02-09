@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import SectionLayout from "@/components/common/SectionLayout";
@@ -113,10 +113,18 @@ function CurriculumInner({ defaultPart = "common" }) {
   );
 }
 
-export default function Curriculum() {
+function CurriculumWithParams() {
   const searchParams = useSearchParams();
   const paramPart = searchParams.get("part");
   const defaultPart = VALID_PARTS.includes(paramPart) ? paramPart : "common";
 
   return <CurriculumInner key={defaultPart} defaultPart={defaultPart} />;
+}
+
+export default function Curriculum() {
+  return (
+    <Suspense fallback={<CurriculumInner defaultPart="common" />}>
+      <CurriculumWithParams />
+    </Suspense>
+  );
 }
