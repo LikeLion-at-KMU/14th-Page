@@ -4,6 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  allowedDevOrigins: ["preview.meowti.kr", "*.meowti.kr"],
 };
 
 export default nextConfig;

@@ -1,17 +1,24 @@
+import IntroSection from "@/components/Intro/IntroSection";
 import StatsCard from "@/components/Intro/StatsCard";
 import Hero from "../components/Intro/Hero";
 import GalleryStrip from "@/components/Intro/GalleryStrip";
 import Tracks from "@/components/Intro/Tracks";
 import BottomCTA from "@/components/Intro/BottomCTA";
 import Activities from "@/components/Intro/Activities";
+import Annual from "@/components/Intro/Annual";
 
 export default function Page() {
   return (
-    <main className="flex flex-col gap-[100px] pt-[88px]">
-      <Hero />
-      <GalleryStrip />
-      <StatsCard />
+    <main className="flex flex-col items-center justify-center md:gap-[100px] overflow-x-clip">
+      <IntroSection />
+      <div id="hero">
+        <Hero>
+          <GalleryStrip />
+          <StatsCard />
+        </Hero>
+      </div>
       <Activities />
+      <Annual />
       <Tracks />
       <BottomCTA />
     </main>

@@ -9,6 +9,15 @@
   font-display: swap;
 }
 
+/* Gotham Font */
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Brand */
   --mssa-black: #121212; /* 멋사검정 */
@@ -71,6 +80,10 @@
   --radius-ui: var(--r-ui);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -79,6 +92,7 @@ body {
 
 body {
   margin: 0;
+  padding: 0;
   color: var(--text);
 
   font-family:

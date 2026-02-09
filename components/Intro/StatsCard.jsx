@@ -1,18 +1,33 @@
+import AnimatedCounter from "../common/AnimatedCounter";
 
 function Stat({label, value, suffix}) {
   const hasPlus = value.includes("+");
-  const mainValue = hasPlus ? value.slice(0, -1) : value;
+  const numericValue = Number(value.replace(/[,+]/g, ""));
   return (
-    <div className="flex flex-col items-center justify-center gap-5">
-      <div className="text-[24px] font-semibold leading-[140%] text-[var(--g3)]">{label}</div>
-      <div className="flex items-end gap-1">
-        <span className="text-[64px] font-bold leading-[140%] tracking-[-0.02em] text-primary">{mainValue}</span>
-        {hasPlus && (
-          <span className="text-[64px] font-bold leading-[140%] tracking-[-0.02em] text-text-subtle">+</span>
-        )}
-        <span className={`pb-[16px] text-[36px] font-bold leading-[140%] tracking-[-0.02em] text-text-subtle`}>
-            {suffix}
-        </span>
+    <div className="flex flex-col items-center justify-center gap-2 md:gap-4">
+      <div className="text-[10px] md:text-[20px] font-semibold leading-[140%] text-[var(--g3)] whitespace-nowrap">{label}</div>
+      <div className="relative h-[28px] md:h-[78px] tabular-nums">
+        {/* 최종 값으로 너비 예약 (보이지 않는 더미값) */}
+        <div className="invisible flex items-end justify-center gap-0.5 md:gap-1" aria-hidden="true">
+          <span className="text-[20px] md:text-[56px] font-bold leading-[140%] tracking-[-0.02em]">{value}</span>
+          {suffix && (
+            <span className="pb-1 md:pb-3 text-[10px] md:text-[32px] font-bold leading-[140%] tracking-[-0.02em]">{suffix}</span>
+          )}
+        </div>
+        {/* 실제 애니메이션 값 */}
+        <div className="absolute inset-0 flex items-end justify-center gap-0.5 md:gap-1">
+          <span className="text-[20px] md:text-[56px] font-bold leading-[140%] tracking-[-0.02em] text-primary">
+            <AnimatedCounter to={numericValue} />
+          </span>
+          {hasPlus && (
+            <span className="text-[20px] md:text-[56px] font-bold leading-[140%] tracking-[-0.02em] text-text-subtle">+</span>
+          )}
+          {suffix && (
+            <span className="pb-1 md:pb-3 text-[10px] md:text-[32px] font-bold leading-[140%] tracking-[-0.02em] text-text-subtle">
+              {suffix}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   )
@@ -21,9 +36,9 @@ function Stat({label, value, suffix}) {
 
 export default function StatsCard() {
   return(
-    <div className="relative mx-auto w-full max-w-[1128px] rounded-card bg-surface">
-      <div className="flex items-center justify-center gap-[92px] py-[68px]">
-        <Stat label="시작된 지" value="13" suffix="년" />
+    <div className="w-full max-w-[325px] md:max-w-[912px] rounded-[12px] md:rounded-card bg-surface">
+      <div className="flex items-center justify-center gap-5 md:gap-[60px] py-5 md:py-12 px-6 md:px-0">
+        <Stat label="시작된 지" value="14" suffix="년" />
         <Stat label="참여 대학" value="80+" />
         <Stat label="멋대 출신 학생 수" value="14,000+" />
         <Stat label="누적 완성 서비스" value="1,800+"/>
