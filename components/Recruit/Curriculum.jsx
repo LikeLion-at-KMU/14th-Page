@@ -1,10 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import SectionLayout from "@/components/common/SectionLayout";
 import { CURRICULUM } from "@/constants/curriculums";
 import PartSwitch from "../common/PartSwitch";
+
+const VALID_PARTS = ["common", "front", "back", "design"];
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -15,8 +18,8 @@ const itemVariants = {
   },
 };
 
-export default function Curriculum() {
-  const [part, setPart] = useState("common");
+function CurriculumInner({ defaultPart = "common" }) {
+  const [part, setPart] = useState(defaultPart);
 
   const rows = useMemo(() => {
     return CURRICULUM[part] ?? [];
@@ -108,4 +111,12 @@ export default function Curriculum() {
       </div>
     </SectionLayout>
   );
+}
+
+export default function Curriculum() {
+  const searchParams = useSearchParams();
+  const paramPart = searchParams.get("part");
+  const defaultPart = VALID_PARTS.includes(paramPart) ? paramPart : "common";
+
+  return <CurriculumInner key={defaultPart} defaultPart={defaultPart} />;
 }
