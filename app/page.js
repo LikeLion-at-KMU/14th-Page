@@ -1,3 +1,4 @@
+import IntroSection from "@/components/Intro/IntroSection";
 import StatsCard from "@/components/Intro/StatsCard";
 import Hero from "../components/Intro/Hero";
 import GalleryStrip from "@/components/Intro/GalleryStrip";
@@ -9,10 +10,13 @@ import Annual from "@/components/Intro/Annual";
 export default function Page() {
   return (
     <main className="flex flex-col items-center justify-center md:gap-[100px] overflow-x-clip">
-      <Hero>
-        <GalleryStrip />
-        <StatsCard />
-      </Hero>
+      <IntroSection />
+      <div id="hero">
+        <Hero>
+          <GalleryStrip />
+          <StatsCard />
+        </Hero>
+      </div>
       <Activities />
       <Annual />
       <Tracks />
