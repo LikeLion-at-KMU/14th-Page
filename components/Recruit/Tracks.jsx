@@ -24,7 +24,7 @@ export default function Tracks() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
-        className="flex flex-col w-full items-center justify-center gap-8"
+        className="flex flex-col w-full items-center justify-center gap-3 md:gap-6"
       >
         <motion.div variants={itemVariants}>
           <TrackCard
