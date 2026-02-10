@@ -13,6 +13,7 @@
 
 - `/` — 소개 페이지 (인트로, 활동 소개, 트랙 안내)
 - `/recruit` — 모집 안내 (일정, 트랙, 커리큘럼, FAQ)
+- `/staff` — 운영진 안내 (전체, 프론트, 백, 기획/디자인)
 
 ## 시작하기
 
@@ -22,3 +23,4 @@ npm run dev
 ```
 
 [http://localhost:3000](http://localhost:3000)에서 확인할 수 있습니다.
+배포되어있는 페이지는 [https://likelionkmu.com](https://likelionkmu.com)에서 확인할 수 있습니다.
