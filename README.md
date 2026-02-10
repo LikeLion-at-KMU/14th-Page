@@ -22,5 +22,5 @@ npm install
 npm run dev
 ```
 
-[http://localhost:3000](http://localhost:3000)에서 확인할 수 있습니다.
+[http://localhost:3000](http://localhost:3000)에서 확인할 수 있습니다.  
 배포되어있는 페이지는 [https://likelionkmu.com](https://likelionkmu.com)에서 확인할 수 있습니다.
