@@ -8,19 +8,17 @@ import Link from "next/link";
 export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [transparent, setTransparent] = useState(isHome);
+  const [introVisible, setIntroVisible] = useState(true);
 
   useEffect(() => {
-    if (!isHome) {
-      return;
-    }
+    if (!isHome) return;
 
     const intro = document.getElementById("intro-section");
     if (!intro) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setTransparent(entry.isIntersecting);
+        setIntroVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
@@ -28,6 +26,8 @@ export default function Header() {
     observer.observe(intro);
     return () => observer.unobserve(intro);
   }, [isHome]);
+
+  const transparent = isHome && introVisible;
 
   return (
     /* h-auto md:h-[88px]: 모바일에서는 내용에 따라 늘어나게, 데스크탑은 88px 고정 */

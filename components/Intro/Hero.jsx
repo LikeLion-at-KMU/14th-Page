@@ -8,7 +8,7 @@ export default function Hero({ children }) {
           <>
             {/* 모바일: 50x50 로고 */}
             <img
-              src="/LIKELION_LOGO.svg"
+              src="/LikeLion_Logo.svg"
               alt="멋사대학 로고"
               className="block md:hidden"
               width={85}
@@ -17,7 +17,7 @@ export default function Hero({ children }) {
             />
             {/* 데스크톱: 207x52 로고 */}
             <img
-              src="/LIKELION_LOGO.svg"
+              src="/LikeLion_Logo.svg"
               alt="멋사대학 로고"
               className="hidden md:block"
               width={207}

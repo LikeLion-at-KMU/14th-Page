@@ -32,25 +32,31 @@ export default function Tracks() {
         className="flex w-full items-center justify-center gap-2 md:gap-8"
       >
         <motion.div variants={itemVariants}>
-          <TrackCard
-            roleEn="Front-end Developer"
-            roleKo="프론트엔드"
-            imageSrc="/track/front.png"
-          />
+          <Link href="/recruit?part=front#curriculum">
+            <TrackCard
+              roleEn="Front-end Developer"
+              roleKo="프론트엔드"
+              imageSrc="/track/front.png"
+            />
+          </Link>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <TrackCard
-            roleEn="Back-end Developer"
-            roleKo="백엔드"
-            imageSrc="/track/back.png"
-          />
+          <Link href="/recruit?part=back#curriculum">
+            <TrackCard
+              roleEn="Back-end Developer"
+              roleKo="백엔드"
+              imageSrc="/track/back.png"
+            />
+          </Link>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <TrackCard
-            roleEn="PM & Designer"
-            roleKo="기획 & 디자인"
-            imageSrc="/track/pm.png"
-          />
+          <Link href="/recruit?part=design#curriculum">
+            <TrackCard
+              roleEn="PM & Designer"
+              roleKo="기획 & 디자인"
+              imageSrc="/track/pm.png"
+            />
+          </Link>
         </motion.div>
       </motion.div>
 
