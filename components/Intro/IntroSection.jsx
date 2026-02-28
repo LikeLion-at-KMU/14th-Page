@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { APPLY_OPEN, APPLY_URL } from "@/constants/apply";
 
 const containerVariants = {
   hidden: {},
@@ -209,19 +210,32 @@ export default function IntroSection() {
         </div>
 
         {/* CTA button */}
-        <motion.a
-          variants={itemVariants}
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfU5Z8FDiC5vUmG8qXwrz6ZPm-B5CeCcBXx_MspYp04zNnn_w/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 md:mt-12 inline-flex items-center justify-center rounded-full px-8 py-4 md:px-11 md:py-8 text-[14px] md:text-[32px] font-semibold text-[var(--g1)] transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
-          style={{
-            background: "rgba(255, 96, 0, 0.1)",
-            boxShadow: "inset 3px 4px 29.3px rgba(255, 96, 0, 0.65)",
-          }}
-        >
-          지금 국민대 아기사자 지원하기
-        </motion.a>
+        {APPLY_OPEN ? (
+          <motion.a
+            variants={itemVariants}
+            href={APPLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 md:mt-12 inline-flex items-center justify-center rounded-full px-8 py-4 md:px-11 md:py-8 text-[14px] md:text-[32px] font-semibold text-(--g1) transition-transform duration-300 ease-out hover:scale-105 cursor-pointer"
+            style={{
+              background: "rgba(255, 96, 0, 0.1)",
+              boxShadow: "inset 3px 4px 29.3px rgba(255, 96, 0, 0.65)",
+            }}
+          >
+            지금 국민대 아기사자 지원하기
+          </motion.a>
+        ) : (
+          <motion.span
+            variants={itemVariants}
+            className="mt-8 md:mt-12 inline-flex items-center justify-center rounded-full px-8 py-4 md:px-11 md:py-8 text-[14px] md:text-[32px] font-semibold text-(--g5) cursor-not-allowed"
+            style={{
+              background: "rgba(255, 255, 255, 0.04)",
+              boxShadow: "inset 3px 4px 29.3px rgba(100, 100, 100, 0.2)",
+            }}
+          >
+            지금 국민대 아기사자 지원하기
+          </motion.span>
+        )}
 
         {/* Scroll indicator */}
         <motion.button

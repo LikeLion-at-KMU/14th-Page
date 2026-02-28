@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { APPLY_OPEN, APPLY_URL } from "@/constants/apply";
 
 export default function Footer() {
   return (
@@ -28,12 +29,20 @@ export default function Footer() {
               <Link href="/staff" className="hover:text-[var(--text-strong)]">
                 운영진
               </Link>
-              <Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfU5Z8FDiC5vUmG8qXwrz6ZPm-B5CeCcBXx_MspYp04zNnn_w/viewform"
-                className="bg-[var(--mssa-orange)] text-[var(--g1)] h-[36px] md:h-[41px] rounded-full px-4 md:px-5 text-[12px] md:text-[14px] font-bold flex items-center justify-center whitespace-nowrap shadow-lg shadow-orange-500/20"
-              >
-                14기 지원하기
-              </Link>
+              {APPLY_OPEN ? (
+                <Link
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-(--mssa-orange) text-(--g1) h-9 md:h-10.25 rounded-full px-4 md:px-5 text-[12px] md:text-[14px] font-bold flex items-center justify-center whitespace-nowrap shadow-lg shadow-orange-500/20"
+                >
+                  14기 지원하기
+                </Link>
+              ) : (
+                <span className="bg-(--g7) text-(--g5) h-9 md:h-10.25 rounded-full px-4 md:px-5 text-[12px] md:text-[14px] font-bold flex items-center justify-center whitespace-nowrap cursor-not-allowed">
+                  14기 지원하기
+                </span>
+              )}
             </nav>
           </div>
         </div>
