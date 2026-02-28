@@ -3,19 +3,26 @@ import Image from "next/image"; // 1. next/image 임포트
 
 export default function ProfileCard({ member }) {
   return (
-    <div className="h-full w-full min-h-[317px] md:min-h-[430px] bg-[var(--surface)] group flex flex-col  overflow-hidden transition-all hover:-translate-y-1 rounded-[var(--r-card)] border border-[var(--g6)]/10 shadow-sm">
-      <div className="relative w-full h-[157px] md:h-[230px] flex-shrink-0 overflow-hidden bg-[var(--g7)]">
+    <div
+      className="w-full h-full bg-[var(--surface)] group flex flex-col overflow-hidden 
+  transition-all hover:-translate-y-1 
+  rounded-[var(--r-card)] border border-[var(--g6)]/10 shadow-sm"
+    >
+      <div
+        className="relative w-full  aspect-[160/172]  
+  md:aspect-[240/260]  flex-shrink-0 overflow-hidden bg-[var(--g7)"
+      >
         <Image
           src={`/STAFF/${member.name}.png`}
           alt={member.name}
           draggable={false}
           fill
           sizes="(max-width: 768px) 50vw, 25vw"
-          className="object-cover object-[top] grayscale-[15%] transition-all group-hover:grayscale-0 group-hover:scale-105"
+          className="object-cover object-top grayscale-[15%] transition-all group-hover:grayscale-0 group-hover:scale-105"
         />
       </div>
 
-      <div className="flex flex-col flex-1 py-[18px] px-[16px] md:py-[24px] md:px-[20px]">
+      <div className="flex flex-col  py-[18px] px-[16px] md:py-[24px] md:px-[20px]">
         <span className="text-[10px] md:text-[12px] font-bold text-[var(--primary)] mb-[8px]">
           {member.role}
         </span>
